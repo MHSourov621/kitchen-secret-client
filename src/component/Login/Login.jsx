@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { FaGithub, FaGoogle } from "react-icons/fa";
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Login = () => {
+    const {googleLogin} = useContext(AuthContext)
+    
+    
+    const handleGoogleLogin = () => {
+        googleLogin()
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(e => {
+            const error = e.message;
+            console.log(error);
+        })
+    }
     return (
         <div>
             <div className="hero">
@@ -26,9 +42,14 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn bg-black text-white">Login</button>
+                                <button className="btn text-lg bg-black text-white">Login</button>
                             </div>
                         </form>
+                        <div className='flex flex-col'>
+                            <button onClick={handleGoogleLogin} className="text-lg border-2 border-black rounded-lg w-3/4 mx-auto py-2 mb-4"><FaGoogle
+                            className="inline mr-4"></FaGoogle> Google Login</button>
+                            <button className="text-lg border-2 border-black rounded-lg w-3/4 mx-auto py-2 mb-10"><FaGithub className='inline mr-4'></FaGithub>Github Login</button>
+                        </div>
                     </div>
                 </div>
             </div>
