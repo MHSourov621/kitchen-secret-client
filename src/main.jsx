@@ -12,6 +12,7 @@ import Login from './component/Login/Login.jsx';
 import Register from './component/Register/Register.jsx';
 import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import ErrorPage from './component/ErrorPage/ErrorPage.jsx';
+import Recipe from './component/Recipe/Recipe.jsx';
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>
       },
+      {
+        path: "/recipe/:id",
+        element: <Recipe></Recipe>,
+        loader: ({params}) => fetch(`http://localhost:5000/allData/${params.id}`)
+      }
     ]
   },
 ]);
