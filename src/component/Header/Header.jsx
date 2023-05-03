@@ -15,7 +15,11 @@ const Header = () => {
                 <div className='text-xl'>
                     {
                         user ? (
+                            <>
+                            {console.log(user)}
+                            {user.photoURL && <img className='w-12 rounded-full mr-4' src={user.photoURL} alt="" />}
                             <button onClick={logout} className='bg-black text-white btn'>Logout</button>
+                            </>
                         ) : (
                             <Link to="/login">Login</Link>
                         )
