@@ -11,12 +11,12 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 setError('')
             })
             .catch(err => {
                 const error = err.message;
-                console.log(error);
+                // console.log(error);
                 setError(error)
             })
     }
@@ -25,12 +25,12 @@ const Login = () => {
         githubLogin()
         .then(result => {
             const user = result.user;
-            console.log(user);
+            // console.log(user);
             setError('')
         })
         .catch(err => {
             const error = error.message;
-            console.log(error);
+            // console.log(error);
         })
     }
 
@@ -42,12 +42,12 @@ const Login = () => {
         emailLogin(email, password)
         .then(result => {
             const user = result.user;
-            console.log(user);
+            // console.log(user);
             setError('')
         })
         .catch(err =>{
             const error = err.message;
-            console.log(error);
+            // console.log(error);
             setError(error)
         })
     }

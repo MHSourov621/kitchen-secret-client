@@ -28,10 +28,10 @@ const Register = () => {
             .then(() => {
               }).catch((error) => {
               });
-              console.log(user);
+            //   console.log(user);
         })
         .catch(err => {
-            console.log(err.message);
+            // console.log(err.message);
         })
     }
 
