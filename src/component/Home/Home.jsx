@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from '../Banner/Banner';
+import ChefCard from '../Chef-card/ChefCard';
 
 const Home = () => {
+    const [chefs, setChefs] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/allData')
+            .then(res => res.json())
+            .then(data => setChefs(data))
+    }, [])
     return (
         <div>
             <Banner></Banner>
+
+            <h2 className='text-4xl font-bold mb-14 text-center'>Our Chefs</h2>
+            <div className='grid lg:grid-cols-3 gap-16 mb-48'>
+                {chefs.map(chef => <ChefCard key={chef.id} chef={chef}></ChefCard>)}
+            </div>
+
             <h2 className='text-4xl font-bold mb-14 text-center'>Recipes By Category</h2>
             <div className='grid lg:grid-cols-3 lg:ml-16 mb-48'>
                 <div className="card w-96 bg-base-100 shadow-xl cursor-pointer">
