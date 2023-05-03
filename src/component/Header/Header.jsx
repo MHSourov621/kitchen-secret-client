@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext);
@@ -9,8 +10,11 @@ const Header = () => {
             <div className="navbar text-black flex justify-between flex-col lg:flex-row py-8">
                 <a className="ml-10 normal-case text-4xl ">Kitchen Secrets</a>
                 <div className='text-xl'>
-                    <Link to='/'>Home</Link>
-                    <Link to="/blog" className='ml-10'>Blogs</Link>
+                    <ul className='flex'>
+                        <li><ActiveLink to='/'>Home</ActiveLink></li>
+                        <li className='ml-10'><ActiveLink to="/blog">Blogs</ActiveLink></li>
+                    </ul>
+                    
                 </div>
                 <div className='text-xl'>
                     {
@@ -26,8 +30,12 @@ const Header = () => {
                             </>
                         ) : (
                             <>
-                                <Link to="/login">Login</Link>
-                                <Link to="/register" className='ml-10 lg:mr-16'>Register</Link>
+                                <ul className='flex'>
+                                    <li><ActiveLink to="/login">Login</ActiveLink></li>
+                                    <li className='ml-10 lg:mr-16'><ActiveLink to="/register">Register</ActiveLink></li>
+                                </ul>
+                                {/* <ActiveLink to="/login">Login</ActiveLink>
+                                <ActiveLink to="/register" className='ml-10 lg:mr-16'>Register</ActiveLink> */}
                             </>
                         )
                     }
