@@ -26,6 +26,25 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            <h2 className='text-4xl font-bold mb-14 text-center'>Most traditional food</h2>
+            <div className="card card-side bg-base-100 shadow-xl mb-48">
+                <figure><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Panta_Ilish.jpg" alt="Movie" /></figure>
+                <div className="card-body">
+                    <h2 className="card-title mb-6 text-3xl font-bold">Panta Ilish</h2>
+                    <p className='text-xl grow-0 mb-18'>Panta ilish is a dish from Bangladesh that combines a bowl of panta bhat—cooked and soaked rice—with fried ilish fish. </p>
+                    <ul className='list-disc text-xl ml-8'>
+                        <li>Panta Vat</li>
+                        <li>Fish Fry</li>
+                        <li>Mash potato</li>
+                        <li>Green Chili</li>
+                        <li>Onion</li>
+                    </ul>
+                    <div className='card-actions justify-end mt-12'>
+                        <button className='bg-black text-white text-lg font-bold p-4 rounded-xl '>View Recipe</button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
