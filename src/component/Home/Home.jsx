@@ -23,12 +23,12 @@ const Home = () => {
             <Banner></Banner>
 
             <h2 className='text-4xl font-bold mb-14 text-center'>Our Chefs</h2>
-            <div className='grid lg:grid-cols-3 gap-16 mb-48'>
+            <div className='grid lg:grid-cols-3 gap-16 mb-32'>
                 {chefs.map(chef => <ChefCard key={chef.id} chef={chef}></ChefCard>)}
             </div>
 
             <h2 className='text-4xl font-bold mb-14 text-center'>Recipes By Category</h2>
-            <div className='grid lg:grid-cols-3 lg:ml-16 mb-48'>
+            <div className='grid lg:grid-cols-3 lg:ml-16 mb-32'>
                 <div className="card w-96 bg-base-100 shadow-xl cursor-pointer">
                     <figure><img src="https://leitesculinaria.com/wp-content/uploads/2021/10/classic-vanilla-cupcakes-1.jpg" alt="" /></figure>
                     <div className="card-body items-center bg-black text-white">
@@ -50,7 +50,7 @@ const Home = () => {
             </div>
 
             <h2 className='text-4xl font-bold mb-14 text-center'>Most traditional food</h2>
-            <div className="card card-side bg-base-100 shadow-xl mb-48">
+            <div className="card card-side bg-base-100 shadow-xl mb-32">
                 <figure><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Panta_Ilish.jpg" alt="Movie" /></figure>
                 <div className="card-body">
                     <h2 className="card-title mb-6 text-3xl font-bold">Panta Ilish</h2>
