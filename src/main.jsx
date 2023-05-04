@@ -14,6 +14,7 @@ import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import ErrorPage from './component/ErrorPage/ErrorPage.jsx';
 import Recipe from './component/Recipe/Recipe.jsx';
 import PrivateRout from './component/PrivateRout/PrivateRout.jsx';
+import Blog from './component/Blog/Blog.jsx';
 
 
 const router = createBrowserRouter([
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: <h1>This is blog</h1>
+        element: <Blog></Blog>
       },
       {
         path: "/login",

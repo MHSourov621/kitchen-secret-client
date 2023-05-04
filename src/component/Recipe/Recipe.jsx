@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 
 const Recipe = () => {
     const chef = useLoaderData();
@@ -33,9 +36,9 @@ const Recipe = () => {
                     <p className='text-xl'>Recipes: {num_recipes}</p>
                     <p className='text-xl'>Likes: {like}</p>
                 </div>
-                <img style={{ height: "600px", width: "800px" }} src={image} alt="" />
+                <LazyLoadImage effect="blur" style={{ height: "600px", width: "800px" }} src={image} alt="" />
             </div>
-                <h2 className='text-4xl font-bold mb-14 text-center'>Recipes</h2>
+            <h2 className='text-4xl font-bold mb-14 text-center'>Recipes</h2>
             <div className='grid grid-cols-3 ml-16 mb-48'>
                 <div className="card w-96 bg-stone-600 text-white shadow-xl">
                     <div className="card-body">
