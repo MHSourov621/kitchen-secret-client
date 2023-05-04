@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       {
         path: "/recipe/:id",
         element: <Recipe></Recipe>,
-        loader: ({params}) => fetch(`http://localhost:5000/allData/${params.id}`)
+        loader: ({params}) => fetch(`https://server-mu-dun.vercel.app/allData/${params.id}`)
       }
     ]
   },
