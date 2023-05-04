@@ -1,17 +1,21 @@
 import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [error, setError] = useState("");
     const { googleLogin, user, githubLogin, emailLogin } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
 
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
                 const user = result.user;
                 // console.log(user);
+                navigate(from);
                 setError('')
             })
             .catch(err => {
@@ -26,6 +30,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             // console.log(user);
+            navigate(from);
             setError('')
         })
         .catch(err => {
@@ -43,6 +48,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             // console.log(user);
+            navigate(from);
             setError('')
         })
         .catch(err =>{
@@ -54,11 +60,6 @@ const Login = () => {
 
     return (
         <div>
-            {
-                user && (
-                    <Navigate to="/" replace={true} />
-                )
-            }
             <div className="hero">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">

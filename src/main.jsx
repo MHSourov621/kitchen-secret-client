@@ -13,6 +13,7 @@ import Register from './component/Register/Register.jsx';
 import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import ErrorPage from './component/ErrorPage/ErrorPage.jsx';
 import Recipe from './component/Recipe/Recipe.jsx';
+import PrivateRout from './component/PrivateRout/PrivateRout.jsx';
 
 
 const router = createBrowserRouter([
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/recipe/:id",
-        element: <Recipe></Recipe>,
+        element: <PrivateRout><Recipe></Recipe></PrivateRout>,
         loader: ({params}) => fetch(`https://server-mu-dun.vercel.app/allData/${params.id}`)
       }
     ]

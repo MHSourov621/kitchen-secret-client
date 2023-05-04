@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const [error, setError] = useState("");
     const {emailRegister, user, profile} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -23,7 +24,7 @@ const Register = () => {
         emailRegister(email, password)
         .then(result => {
             const user = result.user;
-            
+            navigate('/')
             profile(name, image)
             .then(() => {
               }).catch((error) => {
@@ -37,11 +38,6 @@ const Register = () => {
 
     return (
         <div>
-            {
-                user && (
-                    <Navigate to="/" replace={true} />
-                )
-            }
             <div className="hero">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
