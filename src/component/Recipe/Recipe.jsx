@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const Recipe = () => {
     const chef = useLoaderData();
     const { name, image, chefBio, num_recipes, experience, like, recipes } = chef.item;
     console.log(recipes);
+    const notify = () => toast("Added to Favorite");
+    const [on1, seton1] = useState(false);
+    const [on2, seton2] = useState(false);
+    const [on3, seton3] = useState(false);
+    const handleBtn = () => {
+        notify()
+        seton1(true)
+    }
+    const handleBtn2 = () => {
+        notify()
+        seton2(true)
+    }
+    const handleBtn3 = () => {
+        notify()
+        seton3(true)
+    }
     return (
         <div>
             <div className='flex mt-16 bg-stone-600 text-white p-12 mb-24'>
@@ -33,7 +51,7 @@ const Recipe = () => {
                         <p className='text-xl mb-6'>{recipes[0].cooking_method}</p>
                         <p className='text-xl mb-6'>Ratting: {recipes[0].rating} Star</p>
                         <div className="card-actions justify-end">
-                            <button className="bg-black text-white text-lg font-bold p-4 rounded-xl">Add to Favorite</button>
+                            <button onClick={handleBtn} disabled={on1} className="bg-black text-white text-lg font-bold p-4 rounded-xl">Add to Favorite</button>
                         </div>
                     </div>
                 </div>
@@ -51,7 +69,7 @@ const Recipe = () => {
                         <p className='text-xl mb-6'>{recipes[1].cooking_method}</p>
                         <p className='text-xl mb-6'>Ratting: {recipes[1].rating} Star</p>
                         <div className="card-actions justify-end">
-                            <button className="bg-black text-white text-lg font-bold p-4 rounded-xl">Add to Favorite</button>
+                            <button onClick={handleBtn2} disabled={on2} className="bg-black text-white text-lg font-bold p-4 rounded-xl">Add to Favorite</button>
                         </div>
                     </div>
                 </div>
@@ -69,11 +87,12 @@ const Recipe = () => {
                         <p className='text-xl mb-6'>{recipes[2].cooking_method}</p>
                         <p className='text-xl mb-6'>Ratting: {recipes[2].rating} Star</p>
                         <div className="card-actions justify-end">
-                            <button className="bg-black text-white text-lg font-bold p-4 rounded-xl">Add to Favorite</button>
+                            <button onClick={handleBtn3} disabled={on3} className="bg-black text-white text-lg font-bold p-4 rounded-xl">Add to Favorite</button>
                         </div>
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
