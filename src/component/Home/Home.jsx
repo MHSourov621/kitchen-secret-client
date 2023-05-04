@@ -4,12 +4,20 @@ import ChefCard from '../Chef-card/ChefCard';
 
 const Home = () => {
     const [chefs, setChefs] = useState([]);
+    const [loading, setLoading] = useState(true);
+    console.log(loading);
 
     useEffect(() => {
         fetch('https://server-mu-dun.vercel.app/allData')
             .then(res => res.json())
-            .then(data => setChefs(data))
+            .then(data => {
+                setChefs(data)
+                setLoading(false)
+            })
     }, [])
+    if (loading) {
+        return <h3 id="loader" className='text-xl font-bold text-black text-center mt-12 mb-12'>Loading...</h3>
+    }
     return (
         <div>
             <Banner></Banner>
